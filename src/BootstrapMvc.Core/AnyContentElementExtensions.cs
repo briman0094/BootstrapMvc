@@ -23,22 +23,22 @@
                 target.Item.AddContent(block);
             }
             return target;
-		}
+        }
 
-		public static IItemWriter<T, AnyContent> ContentHtml<T>(
+		public static IItemWriter<T, AnyContent> HtmlContent<T>(
 			this IItemWriter<T, AnyContent> target,
-			string html)
+			string html )
 			where T : AnyContentElement
 		{
-			var block = new SimpleBlock();
-			block.Value = html;
-			block.Helper = target.Helper;
-			block.DisableEncoding = true;
-			target.Item.AddContent( block );
+			var htmlBlock = new SimpleBlock();
+			htmlBlock.Value = html;
+			htmlBlock.Helper = target.Helper;
+			htmlBlock.DisableEncoding = true;
+			target.Item.AddContent( htmlBlock );
 			return target;
 		}
 
-		public static IItemWriter<T, AnyContent> Content<T>(
+        public static IItemWriter<T, AnyContent> Content<T>(
             this IItemWriter<T, AnyContent> target,
             params string[] values)
             where T : AnyContentElement
